@@ -10,9 +10,6 @@ var acc=  CurrentAccount("A1204","liz Barisi",1200000.0)
     var z=acc.accountname
     println("$x with $y is operated by $z")
 
-  println(  withdraws(10000))
-
-
     var book=product("books",43,1200,"other")
     goods(book)
     var fruits=product("orange",4,1500,"grocery")
@@ -40,6 +37,7 @@ fun Deposit(amount: Double) {
 
     fun details() {
     }
+
 class classSavingAccount( accountnumber:String, accountname:String, balance:Double):CurrentAccount(accountnumber,accountname, balance)
  fun withdraws(withdrawls:Int){
    var s=0
