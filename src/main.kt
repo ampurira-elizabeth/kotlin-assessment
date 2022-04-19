@@ -1,10 +1,9 @@
 fun main() {
 var acc=  CurrentAccount("A1204","liz Barisi",1200000.0)
+  acc.Deposit(777.0)
+  acc.withdraw(2000.0)
 
- var dep= Deposit(30000.0)
-   var with= withdraw(20000.0)
 
-    details()
     var x = acc.accountnumber
     var y=acc.balance
     var z=acc.accountname
@@ -24,26 +23,27 @@ var acc=  CurrentAccount("A1204","liz Barisi",1200000.0)
     println(str)
 }
 
-open class CurrentAccount(var accountnumber:String,var accountname:String,var balance:Double)
-fun Deposit(amount: Double) {
-  var d=amount.plus(1200000.0)
-        println(d)
+open class CurrentAccount(var accountnumber:String,var accountname:String,var balance:Double) {
+    fun Deposit(amount: Double) {
+        balance+=amount
+        println(balance)
     }
 
-    fun withdraw(amount: Double) {
-        var w = amount.minus(1200000.0)
-        println(w)
+    open fun withdraw(amount: Double) {
+        balance-=amount
+        println(balance)
     }
 
     fun details() {
     }
+}
 
-class classSavingAccount( accountnumber:String, accountname:String, balance:Double):CurrentAccount(accountnumber,accountname, balance)
- fun withdraws(withdrawls:Int){
-   var s=0
-     if (withdrawls<4){
-   return withdraw(10000.0)
-     }
+class classSavingAccount( accountnumber:String, accountname:String, balance:Double,var withdrawals:Int):CurrentAccount(accountnumber,accountname, balance)
+
+{
+    override fun withdraw(amount: Double) {
+        super.withdraw(amount)
+    }
  }
 
 data class product( var name:String,var weight:Int,var price:Int,var category:String)
